@@ -24,7 +24,7 @@ Files:
 
 Cnn architecture : 
 _________________________________________________________________
-Layer (type)                 Output Shape              Param #   
+Layer (type)                 Output Shape              Param no.s   
 =================================================================
 input_1 (InputLayer)         [(None, 32, 32, 1)]       0         
 _________________________________________________________________
@@ -44,11 +44,12 @@ flatten (Flatten)            (None, 12544)             0
 _________________________________________________________________
 dense (Dense)                (None, 128)               1605760   
 _________________________________________________________________
-dropout_1 (Dropout)          (None, 128)               0         
+dropout_1 (Dropout)          (None, 128)               0        
 _________________________________________________________________
-dense_1 (Dense)              (None, 5)                 645       
+dense_1 (Dense)              (None, 5)                 645
+
 =================================================================
 
-4. ### detect.py and detect_multi.py -> Script to run detections and classification on detected hands. (single threaded and multi-threaded respectively). Multi-threading is used to increase the fps. More : https://www.pyimagesearch.com/2015/12/21/increasing-webcam-fps-with-python-and-opencv/
+4. #### detect.py and detect_multi.py -> Script to run detections and classification on detected hands. (single threaded and multi-threaded respectively). Multi-threading is used to increase the fps. More : https://www.pyimagesearch.com/2015/12/21/increasing-webcam-fps-with-python-and-opencv/
 
 5. utils contains some utility functions to run detections and classification.

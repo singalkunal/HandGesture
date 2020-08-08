@@ -20,7 +20,7 @@ Files:
 
 <img src="images/asl_f.png" width=10%> <img src="images/fist.png" width=10%> <img src="images/palm.png" width=10%> <img src="images/seven.png" width=10%> 
 
-asl_f   fist    palm    seven
+1.asl_f           2.fist            3.palm            4.seven
 
 3. recognition2.ipynb -> training the custom cnn for classification of static gestures.
 

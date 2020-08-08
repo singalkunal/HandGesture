@@ -10,7 +10,8 @@ Required Dataset is generated using Hand detection model used in step one.
 3. Hand tracking: Centroid tracking algorithm is used for tracking of detected hand.
 
 
-Files:
+
+### File Description:
 
 1. train_detector_hand.ipynb -> training ssd-mobilenet (pre-trained) using transfer learning to detect hands (took approximately 50-60k iterations to reach total loss below 2.4).
 

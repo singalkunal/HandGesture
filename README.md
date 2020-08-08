@@ -18,7 +18,7 @@ Files:
 
 3. addpose.py -> script used for creating dataset (live) for classification of custom gestures. Hands are detected from each frame webcam live stream (using above trained detector) are cropped to (64x64) and saved to a directory (./Gestures/New by default).
 
-<img src="images/asl_f.png" width=24%> <img src="images/fist.png" width=24%> <img src="images/palm.png" width=24%> <img src="images/seven.png" width=24%> 
+<img src="images/asl_f.png" width=15%> <img src="images/fist.png" width=15%> <img src="images/palm.png" width=15%> <img src="images/seven.png" width=15%> 
 
 3. recognition2.ipynb -> training the custom cnn for classification of static gestures.
 

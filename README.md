@@ -24,29 +24,7 @@ Required Dataset is generated using Hand detection model used in step one.
 3. recognition2.ipynb -> training the custom cnn for classification of static gestures. It took about 10 iterations to reach val_accuracy of 99.99%. 
 
 Cnn architecture : 
-
-  input_1 (InputLayer)         [(None, 32, 32, 1)] 
-...............................................
-conv2d (Conv2D)              (None, 30, 30, 32)
-_________________________________________________________________
-batch_normalization (BatchNo (None, 30, 30, 32)
-_________________________________________________________________
-conv2d_1 (Conv2D)            (None, 28, 28, 64)
-_________________________________________________________________
-batch_normalization_1 (Batch (None, 28, 28, 64)
-_________________________________________________________________
-max_pooling2d (MaxPooling2D) (None, 14, 14, 64)
-_________________________________________________________________
-dropout (Dropout)            (None, 14, 14, 64)
-_________________________________________________________________
-flatten (Flatten)            (None, 12544)
-_________________________________________________________________
-dense (Dense)                (None, 128)
-_________________________________________________________________
-dropout_1 (Dropout)          (None, 128)
-_________________________________________________________________
-dense_1 (Dense)              (None, 5)
-
+    InputLayer => Conv2D => Batch-Normalization => Conv2D => Batch-Normalization => MaxPooling2D => Dropout => Flatten => F.C => Dropout => F.C.
 
     
   

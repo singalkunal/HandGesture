@@ -24,32 +24,34 @@ Files:
 
 Cnn architecture : 
 
-Layer (type)                 Output Shape              Param #
-input_1 (InputLayer)         [(None, 32, 32, 1)]       0         
-conv2d (Conv2D)              (None, 30, 30, 32)        320       
+  Layer (type)                 Output Shape              Param #
+  
+  input_1 (InputLayer)         [(None, 32, 32, 1)]       0         
+  
+  conv2d (Conv2D)              (None, 30, 30, 32)        320       
 
-batch_normalization (BatchNo (None, 30, 30, 32)        128       
+  batch_normalization (BatchNo (None, 30, 30, 32)        128       
 
-conv2d_1 (Conv2D)            (None, 28, 28, 64)        18496     
+  conv2d_1 (Conv2D)            (None, 28, 28, 64)        18496     
 
-batch_normalization_1 (Batch (None, 28, 28, 64)        256       
+  batch_normalization_1 (Batch (None, 28, 28, 64)        256       
+  
+  max_pooling2d (MaxPooling2D) (None, 14, 14, 64)        0         
 
-max_pooling2d (MaxPooling2D) (None, 14, 14, 64)        0         
+  dropout (Dropout)            (None, 14, 14, 64)        0         
 
-dropout (Dropout)            (None, 14, 14, 64)        0         
+  flatten (Flatten)            (None, 12544)             0         
 
-flatten (Flatten)            (None, 12544)             0         
+  dense (Dense)                (None, 128)               1605760   
 
-dense (Dense)                (None, 128)               1605760   
+  dropout_1 (Dropout)          (None, 128)               0        
 
-dropout_1 (Dropout)          (None, 128)               0        
-
-dense_1 (Dense)              (None, 5)                 645
+  dense_1 (Dense)              (None, 5)                 645
 
 
 4. #### detect.py and detect_multi.py : 
 
-Script to run detections and classification on detected hands. (single threaded and multi-threaded respectively). Multi-threading is used to increase the fps. More : https://www.pyimagesearch.com/2015/12/21/increasing-webcam-fps-with-python-and-opencv/
+    Script to run detections and classification on detected hands. (single threaded and multi-threaded respectively). Multi-threading is used to increase the fps.     More : https://www.pyimagesearch.com/2015/12/21/increasing-webcam-fps-with-python-and-opencv/
 
 5. utils contains some utility functions to run detections and classification.
 

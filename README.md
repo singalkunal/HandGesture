@@ -26,7 +26,7 @@ Required Dataset is generated using Hand detection model used in step one.
 Cnn architecture : 
 
   input_1 (InputLayer)         [(None, 32, 32, 1)] 
-_________________________________________________________________
+...............................................
 conv2d (Conv2D)              (None, 30, 30, 32)
 _________________________________________________________________
 batch_normalization (BatchNo (None, 30, 30, 32)

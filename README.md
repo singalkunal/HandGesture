@@ -8,3 +8,8 @@
 Required Dataset is generated using Hand detection model used in step one.
 
 3. Hand tracking: Centroid tracking algorithm is used for tracking of detected hand.
+
+
+Files:
+1. hand_inference_graph2 -> saved tensorflow graph for ssd-mobilenet
+1. addpose.py -> used for creating dataset

@@ -50,6 +50,11 @@ Cnn architecture :
   dense_1 (Dense)              (None, 5)                 645
 
 
+    
+  InputLayer => Conv2D => BatchNormalization =>  Conv2D => BatchNormalization => MaxPooling2D => Dropout => Flatten => Dense => Dropout => Dense
+  
+  [None, 32, 32, 3]
+
 4. #### detect.py and detect_multi.py : 
 
     Script to run detections and classification on detected hands. (single threaded and multi-threaded respectively). Multi-threading is used to increase the fps.     More : https://www.pyimagesearch.com/2015/12/21/increasing-webcam-fps-with-python-and-opencv/

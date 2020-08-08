@@ -18,9 +18,37 @@ Files:
 
 3. addpose.py -> script used for creating dataset (live) for classification of custom gestures. Hands are detected from each frame webcam live stream (using above trained detector) are cropped to (64x64) and saved to a directory (./Gestures/New by default).
 
-<img src="images/asl_f.png" width=10% title="asl_f"> <img src="images/fist.png" width=10%> <img src="images/palm.png" width=10%> <img src="images/seven.png" width=10%> 
+<img src="images/asl_f.png" width=10% title="asl_f"> <img src="images/fist.png" width=10% title="fist"> <img src="images/palm.png" width=10% title="palm"> <img src="images/seven.png" width=10% title="seven">   + garbage
 
-1.asl_f           2.fist            3.palm            4.seven
+3. recognition2.ipynb -> training the custom cnn for classification of static gestures. It took about 10 iterations to reach val_accuracy of 99.99%. 
 
-3. recognition2.ipynb -> training the custom cnn for classification of static gestures.
+Cnn architecture : 
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_1 (InputLayer)         [(None, 32, 32, 1)]       0         
+_________________________________________________________________
+conv2d (Conv2D)              (None, 30, 30, 32)        320       
+_________________________________________________________________
+batch_normalization (BatchNo (None, 30, 30, 32)        128       
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 28, 28, 64)        18496     
+_________________________________________________________________
+batch_normalization_1 (Batch (None, 28, 28, 64)        256       
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 14, 14, 64)        0         
+_________________________________________________________________
+dropout (Dropout)            (None, 14, 14, 64)        0         
+_________________________________________________________________
+flatten (Flatten)            (None, 12544)             0         
+_________________________________________________________________
+dense (Dense)                (None, 128)               1605760   
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 5)                 645       
+=================================================================
 
+4. ### detect.py and detect_multi.py -> Script to run detections and classification on detected hands. (single threaded and multi-threaded respectively). Multi-threading is used to increase the fps. More : https://www.pyimagesearch.com/2015/12/21/increasing-webcam-fps-with-python-and-opencv/
+
+5. utils contains some utility functions to run detections and classification.

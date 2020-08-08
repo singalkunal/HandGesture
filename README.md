@@ -23,7 +23,7 @@ Required Dataset is generated using Hand detection model used in step one.
 <br>
 3. recognition2.ipynb -> training the custom cnn for classification of static gestures. It took about 10 iterations to reach val_accuracy of 99.99%. 
 
-    Cnn architecture : 
+   Cnn architecture : 
 
         InputLayer => Conv2D => Batch-Normalization => Conv2D => Batch-Normalization => MaxPooling2D => Dropout => Flatten => F.C => Dropout => F.C.
 
@@ -37,6 +37,7 @@ Required Dataset is generated using Hand detection model used in step one.
 6. utils contains some utility functions to run detections and classification.
 
 <br>
+
 ------------------------------------------------------------------------------------
 
 Reference: https://github.com/victordibia/handtracking

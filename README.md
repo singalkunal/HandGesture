@@ -41,9 +41,9 @@ Required Dataset is generated using Hand detection model used in step one.
 
 ### Controlling vlc media player (Results) :
 
-   https://youtu.be/C-kbLRoDPWQ
+   <a href="https://youtu.be/C-kbLRoDPWQ"> Part 1 <\a>
     
-   https://www.youtube.com/watch?v=Prmh1Tl5ngM
+   2. https://www.youtube.com/watch?v=Prmh1Tl5ngM
     
     
 

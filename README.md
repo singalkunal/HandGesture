@@ -47,9 +47,9 @@ Required Dataset is generated using Hand detection model used in step one.
 
    On detecting dynamic gestures signals are sent to perform required particular actions using pyautogui.
 
-   <a href="https://youtu.be/C-kbLRoDPWQ"> HCI part1 </a>
+   1. https://youtu.be/C-kbLRoDPWQ
     
-   <a href="https://www.youtube.com/watch?v=Prmh1Tl5ngM"> HCI part2 </a>
+   2. https://www.youtube.com/watch?v=Prmh1Tl5ngM
     
     
 

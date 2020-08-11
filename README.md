@@ -1,5 +1,9 @@
 # Real Time Hand Gesture Recognition and Tracking
 
+### Human Computer Interaction (HCI)
+
+Real time robust hand gestures recognition and tracking on a live stream . This forms the basis for HCI (Human Computer Interaction). Users can interact with the computer (e.g. control vlc media player or control mouse pointer  here) via webcam using dynamic hand gestures accomplished using computer vision (CNN’s)
+
 ### Pipeline:
 
 1. Hand detection -> Transeferable model of ssd-mobilenet-v1-coco is trained for detecting hands. It takes images as input and outputs bounding box of detected hands. Dataset used : http://vision.soic.indiana.edu/projects/egohands/.
@@ -41,9 +45,11 @@ Required Dataset is generated using Hand detection model used in step one.
 
 ### Controlling vlc media player (Results) :
 
-   <a href="https://youtu.be/C-kbLRoDPWQ"> Part 1 </a>
+   On detecting dynamic gestures signals are sent to perform required particular actions using pyautogui.
+
+    <a href="https://youtu.be/C-kbLRoDPWQ"> HCI part1 </a>
     
-   2. https://www.youtube.com/watch?v=Prmh1Tl5ngM
+    <a href="https://www.youtube.com/watch?v=Prmh1Tl5ngM"> HCI part2 </a>
     
     
 

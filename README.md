@@ -29,13 +29,14 @@ Required Dataset is generated using Hand detection model used in step one.
         InputLayer => Conv2D => Batch-Normalization => Conv2D => Batch-Normalization => MaxPooling2D => Dropout => Flatten => F.C => Dropout => F.C.
 
     
-  
+5. ## app.py 
+    Main script which combines and facilitates all the functionalites of app. app.py.  Multi-threading is used to increase the fps.     More : https://www.pyimagesearch.com/2015/12/21/increasing-webcam-fps-with-python-and-opencv/
 
-5. #### detect.py and detect_multi.py : 
-
-    Script to run detections and classification on detected hands. (single threaded and multi-threaded respectively). Multi-threading is used to increase the fps.     More : https://www.pyimagesearch.com/2015/12/21/increasing-webcam-fps-with-python-and-opencv/
 
 6. utils contains some utility functions to run detections and classification.
+
+7. detect.py -> Single Threaded script to run detection and static gesture classification. (Not used in project)
+
 
 <br>
 

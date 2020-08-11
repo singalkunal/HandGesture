@@ -38,11 +38,11 @@ Required Dataset is generated using Hand detection model used in step one.
 7. detect.py -> Single Threaded script to run detection and static gesture classification. (Not used in project)
 
 
-### Results :
+### Controlling vlc media player:
 
-    https://youtu.be/C-kbLRoDPWQ
+   https://youtu.be/C-kbLRoDPWQ
     
-    https://www.youtube.com/watch?v=Prmh1Tl5ngM
+   https://www.youtube.com/watch?v=Prmh1Tl5ngM
     
     
 

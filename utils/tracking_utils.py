@@ -12,6 +12,33 @@ def visualize_roi(num_hands_detect, centre, score_thresh, scores, rad_in, rad_mi
             cv2.circle(image_np, centre, rad_in, (255, 0, 0), -1)
 
 
+def visualize_blurred(num_hands_detect, score_thresh, scores, boxes, im_width, im_height, image_np):
+    for i in range(num_hands_detect):
+        if(scores[i] > score_thresh):
+            (left, right, top, bottom) = (boxes[i][1] * im_width, boxes[i][3] * im_width,
+                                          boxes[i][0] * im_height, boxes[i][2] * im_height)
+            p1 = (0, 0)
+            p2 = (int(left), int(im_height))
+            p3 = (int(left), int(bottom))
+            p4 = (int(im_width), int(im_height))
+            p5 = (int(right), 0)
+            p6 = (int(im_width), int(top))
+            # p1 = (int(left), int(top))
+            # p2 = (int(right), int(bottom))
+
+            cv2.rectangle(image_np, p1, p2, (192,192,192), -1)
+            cv2.rectangle(image_np, p3, p4, (192,192,192), -1)
+            cv2.rectangle(image_np, p5, p4, (192,192,192), -1)
+            cv2.rectangle(image_np, p1, p6, (192,192,192), -1)
+# 
+            # print(type(left))
+            # sub_img = image_np[int(0): int(left)]
+            # white_rect = np.ones(sub_img.shape, dtype=np.uint8) * 255
+            # 
+            # res = cv2.addWeighted(sub_img, 0.5, white_rect, 0.5, 1.0)
+# 
+            # image_np[0: left, None] = res
+            # return image_np
 
 def draw_trajectory(X, Y, image_np):
     px, py = -1, -1

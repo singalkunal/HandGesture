@@ -93,6 +93,9 @@ def worker(input_q, output_q, cap_params, frame_processed):
                 scores, boxes, cap_params['im_width'], cap_params['im_height'],
                 frame)
 
+
+            visualize_blurred(cap_params['num_hands_detect'], cap_params['score_thresh'], scores, boxes, cap_params['im_width'], cap_params['im_height'], frame)
+
             # negative centroid means no hand is detected
             if centroidX < 0:
                 frame_processed += 1
@@ -125,6 +128,7 @@ def worker(input_q, output_q, cap_params, frame_processed):
             if len(trajecX) > 0:
                 x, y = trajecX[-1], trajecY[-1]
 
+                # frame = visualize_blurred(cap_params['num_hands_detect'], cap_params['score_thresh'], scores, boxes, cap_params['im_width'], cap_params['im_height'], frame)
                 # visualize_roi(cap_params['num_hands_detect'], (x, y), 
                         # cap_params['score_thresh'], scores, 
                         # rad_in, rad_mid, rad_out, frame)

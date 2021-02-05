@@ -2,6 +2,7 @@ import numpy as np
 import sys
 import tensorflow.compat.v1 as tf
 
+import dlib
 import os
 from threading import Thread
 from datetime import datetime
@@ -53,33 +54,89 @@ def load_inference_graph():
 # draw the detected bounding boxes on the images
 # You can modify this to also draw a label.
 def draw_box_on_image(num_hands_detect, score_thresh, scores, boxes, im_width, im_height, image_np):
+    x,y = -1, -1
     for i in range(num_hands_detect):
         if (scores[i] > score_thresh):
             (left, right, top, bottom) = (boxes[i][1] * im_width, boxes[i][3] * im_width,
                                           boxes[i][0] * im_height, boxes[i][2] * im_height)
             p1 = (int(left), int(top))
             p2 = (int(right), int(bottom))
+
+            x = (int(left) + int(right)) // 2
+            y = (int(top) + int(bottom)) // 2
             
+            # cv2.circle(image_np, (x, y), 4,(0,255,0), -1)
+
+            # cv2.circle(image_np, (x, y), 20,(0,255,0), 2)
+            # cv2.circle(image_np, (x, y), 80,(0,255,0), 2)
             cv2.rectangle(image_np, p1, p2, (77, 255, 9), 3, 1)
+
+        return (x, y)
+
+def draw_abs_box_on_image(pos, image_np):
+    l, r, t, b = int(pos.left()), int(pos.right()), int(pos.top()), int(pos.bottom())
+
+    p1 = (l, t)
+    p2 = (r, b)
+
+    x = (l + r) // 2
+    y = (t + b) // 2
+
+    cv2.circle(image_np, (x, y), 4,(0,255,0), -1)
+    cv2.rectangle(image_np, p1, p2, (77, 255, 9), 3, 1)
+
+
+def draw_centroid_on_image(num_hands_detect, centre, score_thresh, scores, image_np):
+    for i in range(num_hands_detect):
+        if (scores[i] > score_thresh):
+            cv2.circle(image_np, centre, 2, (0, 255, 0), -1)
+
+
+def visualize_roi(num_hands_detect, centre, score_thresh, scores, rad_in, rad_mid, rad_out, image_np):
+    for i in range(num_hands_detect):
+        if(scores[i] > score_thresh):
+            cv2.rectangle(image_np, (0, 0), (image_np.shape[1], image_np.shape[0]), (0, 255, 0), -1)
+            cv2.circle(image_np, centre, rad_out, (255, 0, 0), -1)
+            cv2.circle(image_np, centre, rad_mid, (0, 255, 0), -1)
+            cv2.circle(image_np, centre, rad_in, (255, 0, 0), -1)
+
+
 
 def get_box_image(num_hands_detect, score_thresh, scores, boxes, im_width, im_height, image_np):
     for i in range(num_hands_detect):
         if(scores[i] > score_thresh):
             (left, right, top, bottom) = (boxes[i][1] * im_width, boxes[i][3] * im_width,
                                           boxes[i][0] * im_height, boxes[i][2] * im_height)
-            p1 = (int(left), int(top))
-            p2 = (int(right), int(bottom))
             return image_np[int(top):int(bottom), int(left):int(right)].copy()
 
-def normalize(frame):
-    h, w,_ = frame.shape
-    if not h == w ==64:
-        frame = cv2.resize(frame, (64, 64), interpolation=cv2.INTER_AREA)
-    return frame
+def get_abs_box_image(pos, image_np):
+    l, r, t, b = int(pos.left()), int(pos.right()), int(pos.top()), int(pos.bottom())
+    return image_np[t:b, l:r].copy()
+
+def get_trackers(num_hands_detect, score_thresh, scores, boxes, im_width, im_height, image_np):
+    trackers = []
+    for i in range(num_hands_detect):
+        if scores[i] > score_thresh:
+            (left, right, top, bottom) = (boxes[i][1] * im_width, boxes[i][3] * im_width,
+                                          boxes[i][0] * im_height, boxes[i][2] * im_height)
+
+            tracker = dlib.correlation_tracker()
+            rect = dlib.rectangle(int(left), int(top), int(right), int(bottom))
+            tracker.start_track(image_np, rect)
+
+            trackers.append(tracker)
+
+    return trackers
+
 
 # Show fps value on image.
 def draw_fps_on_image(fps, image_np):
     cv2.putText(image_np, fps, (20, 50),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.75, (77, 255, 9), 2)
+
+
+def draw_label_on_image(label, image_np, origin=(500,50)):
+    cv2.putText(image_np, label, origin,
                 cv2.FONT_HERSHEY_SIMPLEX, 0.75, (77, 255, 9), 2)
 
 

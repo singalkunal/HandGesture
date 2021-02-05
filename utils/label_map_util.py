@@ -27,7 +27,10 @@ from six.moves import range
 import tensorflow.compat.v1 as tf
 from google.protobuf import text_format
 sys.path.append("..")
+
+# if protos directory is insdide object_detection
 from object_detection.protos import string_int_label_map_pb2
+# from protos import string_int_label_map_pb2
 
 _LABEL_OFFSET = 1
 

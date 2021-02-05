@@ -94,7 +94,9 @@ def worker(input_q, output_q, cap_params, frame_processed):
                 frame)
 
 
-            visualize_blurred(cap_params['num_hands_detect'], cap_params['score_thresh'], scores, boxes, cap_params['im_width'], cap_params['im_height'], frame)
+            ## enable this if only want to visualize the bounding box
+            ## and blur rest of the image
+            # visualize_blurred(cap_params['num_hands_detect'], cap_params['score_thresh'], scores, boxes, cap_params['im_width'], cap_params['im_height'], frame)
 
             # negative centroid means no hand is detected
             if centroidX < 0:

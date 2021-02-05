@@ -4,7 +4,8 @@ import tensorflow as tf
 import multiprocessing
 from multiprocessing import Queue, Pool
 import time
-from utils.detector_utils import WebcamVideoStream, normalize 
+from utils.detector_utils import WebcamVideoStream
+from utils.recognition_utils import normalize 
 import datetime
 import argparse
 import numpy as np

@@ -2,7 +2,6 @@ import numpy as np
 import sys
 import tensorflow.compat.v1 as tf
 
-import dlib
 import os
 from threading import Thread
 from datetime import datetime
@@ -112,22 +111,6 @@ def get_box_image(num_hands_detect, score_thresh, scores, boxes, im_width, im_he
 def get_abs_box_image(pos, image_np):
     l, r, t, b = int(pos.left()), int(pos.right()), int(pos.top()), int(pos.bottom())
     return image_np[t:b, l:r].copy()
-
-def get_trackers(num_hands_detect, score_thresh, scores, boxes, im_width, im_height, image_np):
-    trackers = []
-    for i in range(num_hands_detect):
-        if scores[i] > score_thresh:
-            (left, right, top, bottom) = (boxes[i][1] * im_width, boxes[i][3] * im_width,
-                                          boxes[i][0] * im_height, boxes[i][2] * im_height)
-
-            tracker = dlib.correlation_tracker()
-            rect = dlib.rectangle(int(left), int(top), int(right), int(bottom))
-            tracker.start_track(image_np, rect)
-
-            trackers.append(tracker)
-
-    return trackers
-
 
 # Show fps value on image.
 def draw_fps_on_image(fps, image_np):

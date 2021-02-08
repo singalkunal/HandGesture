@@ -1,6 +1,9 @@
-FROM singalkunal/tensorflow-opencv:tf-gpu-cv4
+#FROM singalkunal/tensorflow-opencv:tf-gpu-cv4
+FROM local/tensorflow-opencv:tf-gpu-cv4
+
+#install tk gui toolkit
 RUN apt-get update \
-    && apt-get install vim -y
+    && apt-get install python3-tk
 
 WORKDIR HandGesture
 
@@ -15,3 +18,7 @@ COPY utils utils/
 COPY app.py .
 
 RUN rm requirements.txt
+
+#ENTRYPOINT ["python3", "app.py"]
+#CMD [`]
+

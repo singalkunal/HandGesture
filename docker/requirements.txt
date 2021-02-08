@@ -1,3 +1,4 @@
+python-xlib
 numpy==1.18.5
 matplotlib==3.2.1
 six==1.11.0

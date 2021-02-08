@@ -1,4 +1,4 @@
-FROM singalkunal/tensorflow-opencv:tf-gpu-cv4
+FROM singalkunal/tensorflow-opencv:latest-tf-gpu-cv4
 RUN apt-get update \
     && apt-get install vim -y
 

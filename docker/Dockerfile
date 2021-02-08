@@ -3,7 +3,7 @@ FROM local/tensorflow-opencv:tf-gpu-cv4
 
 #install tk gui toolkit
 RUN apt-get update \
-    && apt-get install python3-tk
+    && apt-get install python3-tk -y
 
 WORKDIR HandGesture
 

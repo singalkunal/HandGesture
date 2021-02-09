@@ -1,4 +1,5 @@
 FROM singalkunal/tensorflow-opencv:latest-tf-gpu-cv4
+LABEL mantainer="Kunal Singal <singalkunal10@gmail.com>"
 
 RUN apt-get update
 #    \ && apt-get install vim -y
